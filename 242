@@ -1,0 +1,14 @@
+class Solution {
+  bool isAnagram(String s, String t) {
+    int charSumS = s.runes.fold(0, (sum, char) => sum + char);
+    int charSumT = t.runes.fold(0, (sum, char) => sum + char);
+
+    if(s.length != t.length){
+    return false; // s와 t의 길이가 다르면 false
+    }
+    else if(charSumS - charSumT == 0){ //각 문자열의합을 구해서 차이 비교
+    return true;
+    }
+    return false;
+  }
+}
