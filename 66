@@ -1,0 +1,14 @@
+class Solution {
+  List<int> plusOne(List<int> digits) {
+   for (int i = digits.length -1; i >=0; i--) {
+    if (digits[i] < 9) { 
+     digits[i]++;
+     return digits;         //9 미만인 경우 +1 해주기
+    }
+    digits[i] = 0; // 9인경우 0으로
+   }
+     digits.insert(0, 1);
+     return digits;              //9가 0이된 경우 앞에 1 추가해주기
+
+}
+}
