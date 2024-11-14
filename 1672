@@ -1,0 +1,14 @@
+class Solution {
+  int maximumWealth(List<List<int>> accounts) {
+   int maxWealth = 0;
+
+    for (var account in accounts) {
+        int accountplus = account.reduce((a, b) => a + b); //계좌 재산 더하기
+        maxWealth = max(maxWealth, accountplus);  //현재 최대 자산 maxWealth와 계산된 자산 accountplus를 비교하여 더 큰 값을 maxWealth에 저장합니다.
+    } 
+
+    return maxWealth;
+    
+     
+  }
+}
