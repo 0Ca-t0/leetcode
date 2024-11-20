@@ -1,0 +1,22 @@
+class Solution {
+  double average(List<int> salary) {
+    int minSalary = salary[0];
+    int maxSalary = salary[0];
+    int totalSalary = 0;
+    
+    
+    for (int s in salary) {
+        if (s < minSalary) {//최소값(minSalary) 구하기
+            minSalary = s;
+        }else if (s > maxSalary) {//최대값(maxSalary) 구하기
+            maxSalary = s;
+        } totalSalary += s;
+    }
+    
+   print(totalSalary);
+   print(minSalary);
+   print(maxSalary);
+
+    return (totalSalary - minSalary - maxSalary) / (salary.length - 2);//전체에서 최소값 최대값을 빼고 나누기
+  }
+}
