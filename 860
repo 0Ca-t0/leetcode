@@ -1,0 +1,31 @@
+class Solution {
+  bool lemonadeChange(List<int> bills) {
+   Map<int, int> change = {5 : 0, 10 : 0}; 
+
+    for (int bill in bills) {
+      if (bill == 5) {//5달러를낼때
+        change[5] = change[5]! + 1;
+      }else if (bill == 10) { //10달러를낼때
+       if (change[5]! > 0) {//5달러가 있으면 5달러 거슬러주기
+         change[5] = change[5]! - 1;
+         change[10] = change[10]! + 1;
+       }  else {
+         return false; //없으면 false
+       }
+      }
+      else if (bill == 20) { //20달러를낼때
+        if (change[5]! > 0 && change[10]! > 0) { //5달러 10달러가 있으면 하나씩 줘서 거슬러주기
+          change[5] = change[5]! - 1;
+          change[10] = change[10]! - 1;
+        } 
+        else if (change[5]! > 2) {//5달러 3개가 있다면 3개로 거슬러주기
+          change[5] = change[5]! - 3;
+        }
+        else {
+            return false;  //없으면 false
+        }
+    }
+ }
+ return true;
+}
+}
