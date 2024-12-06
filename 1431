@@ -1,0 +1,23 @@
+class Solution {
+  List<bool> kidsWithCandies(List<int> candies, int extraCandies) {
+    int maxCandies = candies[0]; //가장 많은 캔디의 갯수 확인
+    for (int candy in candies) {
+      if (candy > maxCandies) {
+        maxCandies = candy;
+      }
+    }
+
+    List<bool> result = [];
+    
+    for (int candy in candies) {   //가장 많은 캔디의 갯수와 비교하기
+      if (candy + extraCandies >= maxCandies) {
+         result.add(true);
+         print(maxCandies);
+         print(result);
+      } else {
+         result.add(false);
+      }
+  }
+  return result;
+}
+}
